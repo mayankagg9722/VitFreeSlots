@@ -82,7 +82,7 @@ request.get({ url: 'https://vtop.vit.ac.in/student/captcha.asp', jar: jar }, (er
                   //   }
                   // }
                   
-//##########    "FREE  SLOTS(BY Mayankagg_9722)!!!!!!"  ######################//
+//##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!"  ######################//
 var free_slots=[];
                   for (var i = 2; i < 7; i++) {
                     var obj=new Object;
@@ -106,7 +106,7 @@ var free_slots=[];
                     free_slots.push(obj);
                   }
                   console.log(free_slots);
-//##########    "FREE  SLOTS(BY Mayankagg_9722)!!!!!!"  ######################//
+//##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!"  ######################//
                 });
             }
           });
