@@ -17,6 +17,7 @@ var cheerio = require('cheerio');
 const cache = require('memory-cache');
 let jar = request.jar();
 var unirest = require('unirest');
+ var free_slots = [];
 require('dotenv').config();
 
 request.get({ url: 'https://vtop.vit.ac.in/student/captcha.asp', jar: jar }, (err, res, body) => {
@@ -70,50 +71,54 @@ request.get({ url: 'https://vtop.vit.ac.in/student/captcha.asp', jar: jar }, (er
 
                   // console.log(table.text());
 
-//$$$$$$$$$   learn to get table by td and tr      $$$$$$$$ /////////
-
-                  //only theory subjects if condition
-
-
-                  // for (var i = 0; i < table.find('tr').length; i++) {
-                  //   for (var j = 0; j < table.find('tr').eq(i).find('td').length; j++) {
-                  //     if(table.find('tr').eq(i).find('td').eq(7).text()=="CBL")
-                  //   console.log(table.find('tr').eq(i).find('td').eq(j).text());
-                  //   }
-                  // }
-                  
-//##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!"  ######################//
-var free_slots=[];
+                  //##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!" 
                   for (var i = 2; i < 7; i++) {
-                    var obj=new Object;
-                    obj.day=table.find('tr').eq(i).find('td').eq(0).text();
+                    var obj = new Object;
+                    obj.day = table.find('tr').eq(i).find('td').eq(0).text();
                     //  console.log(table.find('tr').eq(i).find('td').eq(0).text());
-                    var arr=[];
+                    var arr = [];
                     for (var j = 0; j < table.find('tr').eq(i).find('td').length; j++) {
-                        if(table.find('tr').eq(i).find('td').eq(j).text().length<11){
-                          if(j!=7 && !(table.find('tr').eq(0).find('td').eq(j).text()=="THEORY HOURS") ){
-                            // console.log(table.find('tr').eq(0).find('td').eq(j).text());
-                            if(table.find('tr').eq(0).find('td').eq(j).text().length>3){
-                              arr.push(table.find('tr').eq(0).find('td').eq(j).text());
-                            }else{
-                              arr.push(table.find('tr').eq(1).find('td').eq(j).text());
-                            }
-                            
+                      if (table.find('tr').eq(i).find('td').eq(j).text().length < 11) {
+                        if (j != 7 && !(table.find('tr').eq(0).find('td').eq(j).text() == "THEORY HOURS")) {
+                          // console.log(table.find('tr').eq(0).find('td').eq(j).text());
+                          if (table.find('tr').eq(0).find('td').eq(j).text().length > 3) {
+                            arr.push(table.find('tr').eq(0).find('td').eq(j).text());
+                          } else {
+                            arr.push(table.find('tr').eq(1).find('td').eq(j).text());
                           }
-                          obj.free_slots=arr;
+
                         }
+                        obj.free_slots = arr;
+                      }
                     }
                     free_slots.push(obj);
                   }
-                  console.log(free_slots);
-//##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!"  ######################//
+                  var Request = unirest.get('https://vtop.vit.ac.in/student/home.asp')
+                    .jar(jar)
+                    .followRedirect(true)
+                    .timeout(28000)
+                    .end(getName)
+                  // console.log(free_slots);
                 });
+                function getName(res) {
+                      var $ = cheerio.load(res.body);
+                      tables = $('table');
+                      table = $(tables[1]);
+                      var name = table.find('td').eq(0).text().trim().split(" ")[1].trim() + " " + table.find('td').eq(0).text().trim().split(" ")[2].trim();
+                      var obj = new Object;
+                      obj.student_name = name;
+                      free_slots.push(obj);
+                      console.log(free_slots);
+                    };
+                    //##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!"
             }
           });
       }
     })
   }
 });
+
+
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // view engine setup
@@ -150,3 +155,16 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
+
+
+//$$$$$$$$$   learn to get table by td and tr      $$$$$$$$ /////////
+
+                  //only theory subjects if condition
+
+
+                  // for (var i = 0; i < table.find('tr').length; i++) {
+                  //   for (var j = 0; j < table.find('tr').eq(i).find('td').length; j++) {
+                  //     if(table.find('tr').eq(i).find('td').eq(7).text()=="CBL")
+                  //   console.log(table.find('tr').eq(i).find('td').eq(j).text());
+                  //   }
+                  // }
