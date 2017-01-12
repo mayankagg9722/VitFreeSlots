@@ -83,20 +83,22 @@ request.get({ url: 'https://vtop.vit.ac.in/student/captcha.asp', jar: jar }, (er
                   // }
                   
 //##########    "FREE  SLOTS(BY Mayankagg_9722)!!!!!!"  ######################//
-
-
-
 var free_slots=[];
-var obj=new Object;
                   for (var i = 2; i < 7; i++) {
+                    var obj=new Object;
                     obj.day=table.find('tr').eq(i).find('td').eq(0).text();
                     //  console.log(table.find('tr').eq(i).find('td').eq(0).text());
                     var arr=[];
                     for (var j = 0; j < table.find('tr').eq(i).find('td').length; j++) {
                         if(table.find('tr').eq(i).find('td').eq(j).text().length<11){
-                          if(j!=7 && !(table.find('tr').eq(0).find('td').eq(j).text()=="THEORY HOURS") && (table.find('tr').eq(0).find('td').eq(j).text().length>3)){
+                          if(j!=7 && !(table.find('tr').eq(0).find('td').eq(j).text()=="THEORY HOURS") ){
                             // console.log(table.find('tr').eq(0).find('td').eq(j).text());
-                            arr.push(table.find('tr').eq(0).find('td').eq(j).text());
+                            if(table.find('tr').eq(0).find('td').eq(j).text().length>3){
+                              arr.push(table.find('tr').eq(0).find('td').eq(j).text());
+                            }else{
+                              arr.push(table.find('tr').eq(1).find('td').eq(j).text());
+                            }
+                            
                           }
                           obj.free_slots=arr;
                         }
@@ -104,8 +106,6 @@ var obj=new Object;
                     free_slots.push(obj);
                   }
                   console.log(free_slots);
-                  
-                
 //##########    "FREE  SLOTS(BY Mayankagg_9722)!!!!!!"  ######################//
                 });
             }
