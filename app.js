@@ -17,7 +17,7 @@ var cheerio = require('cheerio');
 const cache = require('memory-cache');
 let jar = request.jar();
 var unirest = require('unirest');
-
+require('dotenv').config();
 
 request.get({ url: 'https://vtop.vit.ac.in/student/captcha.asp', jar: jar }, (err, res, body) => {
   let pixMap = parser.getPixelMapFromBuffer(new Buffer(res.body))
@@ -28,8 +28,8 @@ request.get({ url: 'https://vtop.vit.ac.in/student/captcha.asp', jar: jar }, (er
     request.post({
       url: 'https://vtop.vit.ac.in/student/stud_login_submit.asp',
       form: {
-        regno: "15BCE0751",
-        passwd: "",
+        regno: process.env.VIT_USERNAME,
+        passwd: process.env.VIT_PASSWORD,
         vrfcd: captcha,
         message: ''
       },
