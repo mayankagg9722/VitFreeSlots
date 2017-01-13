@@ -6,4 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('slots');
 });
 
+
+router.post('/find',function(req,res,next){
+res.json(req.body);
+});
+
+
 module.exports = router;

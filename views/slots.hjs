@@ -15,29 +15,29 @@
 	<button class='btn btn-success btn-sm'>Learn More!</button></center>
 </div>
 <div class='container-fluid' style='margin-top:100px;'>
-	<form method='post' action='/slots' enctype='form-data/multipart'>
+	<form method='post' action='/slots/find' enctype='form-data/multipart'>
 		<div class='form-group'>
 			<div class='container'>
 			<div class="col-sm-1"></div>
 			<div class='col-sm-2'>
 				<center><label>Monday</label><br>
-				<input type='radio' name='day' value='mon'></center>
+				<input type='radio' name='day' value='MON'></center>
 			</div>
 			<div class='col-sm-2'>
 				<center><label>Tuesday</label><br>
-				<input type='radio' name='day' value='tue'></center>
+				<input type='radio' name='day' value='TUE'></center>
 			</div>
 			<div class='col-sm-2'>
 				<center><label>Wednesday</label><br>
-				<input type='radio' name='day' value='wed'></center>
+				<input type='radio' name='day' value='WED'></center>
 			</div>
 			<div class='col-sm-2'>
 				<center><label>Thursday</label><br>
-				<input type='radio' name='day' value='thur'></center>
+				<input type='radio' name='day' value='THU'></center>
 			</div>
 			<div class='col-sm-2'>
 				<center><label>Friday</label><br>
-				<input type='radio' name='day' value='fri'></center>
+				<input type='radio' name='day' value='FRI'></center>
 			</div>
 			<div class="col-sm-1"></div>
 			</div><br><br><br><br>

@@ -1,7 +1,8 @@
 var cheerio = require('cheerio');
 var unirest = require('unirest');
-var free_slots =new Array;
+var free_slots =new Object;
 var global_callback;
+var time=new Array;
 
 function scrape(jar,callback) {
     global_callback=callback;
@@ -38,7 +39,7 @@ function scrape(jar,callback) {
         var name = table.find('td').eq(0).text().trim().split(" ")[1].trim() + " " + table.find('td').eq(0).text().trim().split(" ")[2].trim();
         var obj = new Object;
         obj.student_name = name;
-        free_slots.push(obj);
+        free_slots.name=obj;
     };
 
    //##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!"
@@ -68,8 +69,9 @@ function scrape(jar,callback) {
                     obj.free_slots = arr;
                 }
             }
-            free_slots.push(obj);
+            time.push(obj);
         }
+        free_slots.time=time;
         // console.log(free_slots);
         global_callback(free_slots);
     }
