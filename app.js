@@ -10,10 +10,7 @@ var slots = require('./routes/slots');
 
 var app = express();
 
-// #######################################################################
-var scraper=require('./scrapper');
-scraper.scrape();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hjs');

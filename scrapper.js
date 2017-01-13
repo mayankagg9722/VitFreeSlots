@@ -1,17 +1,17 @@
 var cheerio = require('cheerio');
 var unirest = require('unirest');
-var free_slots = [];
-var login = require("./login");
+var free_slots =new Array;
+var global_callback;
 
-function scrape() {
-    login.doLogin(function (jar) {
+function scrape(jar,callback) {
+    global_callback=callback;
         var Request = unirest.get('https://vtop.vit.ac.in/student/course_regular.asp?sem=WS')
             .jar(jar)
             .followRedirect(true)
             .timeout(28000)
             .end(function (res) {
                 if (res.error) {
-                    // console.log('GET error', res.error)
+                    console.log('GET error', res.error)
                 } else {
                     console.log("///@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
@@ -28,8 +28,8 @@ function scrape() {
                         .timeout(28000)
                         .end(getName)                
                 }
+
             });
-    });
 
     function getName(res) {
         var $ = cheerio.load(res.body);
@@ -70,7 +70,8 @@ function scrape() {
             }
             free_slots.push(obj);
         }
-        console.log(free_slots);
+        // console.log(free_slots);
+        global_callback(free_slots);
     }
 
     //##########    "FREE  SLOTS(BY mayankagg9722)!!!!!!" 
