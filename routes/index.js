@@ -5,6 +5,7 @@ var scraper = require('../scrapper');
 var mongo = require('mongodb');
 var bcrypt = require('bcrypt');
 var assert = require('assert');
+// var MongoClient=requre('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/test';
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -29,9 +30,9 @@ router.post('/slots', function (req, res, next) {
         mongo.connect(url, function (err, db) {
           assert.equal(null, err);
           // console.log(item);
-          db.collection("vitfreeslot").count({ username: item.username }, function (err, data) {
-            // console.log(data);
-            if (data == 0) {
+          getCount(item.username,function(res){
+            console.log(res);
+            if (res == 0) {
               db.collection('vitfreeslot_users').insert(item, function (err, result) {
                 assert.equal(null, err);
                 console.log('item inserted');
@@ -41,24 +42,32 @@ router.post('/slots', function (req, res, next) {
                 db.collection('vitfreeslot_users_information').insert(data, function (err, result) {
                 assert.equal(null, err);
                 console.log('item 2 inserted');
-                db.close();
               });
               });
+              
             }
             else {
               console.log("Already Added");
-            }
+            }      
           });
+         
         });
       });
     });
-
-
-
     res.render('slots');
   });
-
 });
+
+function getCount(username,callback){
+  mongo.connect(url, function (err, db) {
+    db.collection("vitfreeslot_users").count({ username: username }, function (err, data) {
+            // console.log(data);
+            callback(data);
+    });
+  });
+}
+
+
 
 
 
