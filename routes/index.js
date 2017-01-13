@@ -15,8 +15,8 @@ var details={
 }
 
  login.doLogin(details,function (jar){
-   scraper.scrape(jar,function(res){
-     console.log(res);
+   scraper.scrape(jar,function(data){
+     console.log(data);
    });
    res.render('slots');
  });

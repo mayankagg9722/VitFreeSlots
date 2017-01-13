@@ -43,52 +43,53 @@
 			</div><br><br><br><br>
 			<div class='container'>
 			<div class='col-sm-1'>
-				<center><label>01</label><br>
-				<input type='checkbox' name='time' value='1'></center>
+				<center><label>08:00 AMto08:50 AM</label><br>
+				<input type='checkbox' name='time' value='08:00 AMto08:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>02</label><br>
-				<input type='checkbox' name='time' value='2'></center>
+				<center><label>09:00 AMto09:50 AM</label><br>
+				<input type='checkbox' name='time' value='09:00 AMto09:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>03</label><br>
-				<input type='checkbox' name='time' value='3'></center>
+				<center><label>10:00 AMto10:50 AM</label><br>
+				<input type='checkbox' name='time' value='10:00 AMto10:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>04</label><br>
-				<input type='checkbox' name='time' value='4'></center>
+				<center><label>11:00 AMto11:50 A</label><br>
+				<input type='checkbox' name='time' value='11:00 AMto11:50 A'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>05</label><br>
-				<input type='checkbox' name='time' value='5'></center>
+				<center><label>12:00 PMto12:50 PM</label><br>
+				<input type='checkbox' name='time' value='12:00 PMto12:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>06</label><br>
-				<input type='checkbox' name='time' value='6'></center>
+				<center><label>12:40 PMto01:30 PM</label><br>
+				<input type='checkbox' name='time' value='12:40 PMto01:30 PM'></center>
+			</div>
+			
+			<div class='col-sm-1'>
+				<center><label>02:00 PMto02:50 PM</label><br>
+				<input type='checkbox' name='time' value='02:00 PMto02:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>07</label><br>
-				<input type='checkbox' name='time' value='7'></center>
+				<center><label>03:00 PMto03:50 PM</label><br>
+				<input type='checkbox' name='time' value='03:00 PMto03:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>08</label><br>
-				<input type='checkbox' name='time' value='8'></center>
+				<center><label>04:00 PMto04:50 PM</label><br>
+				<input type='checkbox' name='time' value='04:00 PMto04:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>09</label><br>
-				<input type='checkbox' name='time' value='9'></center>
+				<center><label>05:00 PMto05:50 PM</label><br>
+				<input type='checkbox' name='time' value='05:00 PMto05:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>10</label><br>
-				<input type='checkbox' name='time' value='10'></center>
+				<center><label>05:50 PMto06:40 PM</label><br>
+				<input type='checkbox' name='time' value='05:50 PMto06:40 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>11</label><br>
-				<input type='checkbox' name='time' value='11'></center>
-			</div>
-			<div class='col-sm-1'>
-				<center><label>12</label><br>
-				<input type='checkbox' name='time' value='12'></center>
+				<center><label>07:00 PMto07:50 PM</label><br>
+				<input type='checkbox' name='time' value='07:00 PMto07:50 PM'></center>
 			</div>
 			</div><br><br><br><br>
 			<div class="form-group">
