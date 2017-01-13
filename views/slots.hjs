@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <title>MainSection</title>
+</head>
+<body>
+<div class="jumbotron text-success">
+	<center><h1>Find free slots</h1>
+	<p>So, here u just have to login with ur vtop credentials and we will tell ur free slots!!!:)</p>
+	<button class='btn btn-success btn-sm'>Learn More!</button></center>
+</div>
+<div class='container-fluid' style='margin-top:100px;'>
+	<form method='post' action='/slots' enctype='form-data/multipart'>
+		<div class='form-group'>
+			<div class='container'>
+			<div class="col-sm-1"></div>
+			<div class='col-sm-2'>
+				<center><label>Monday</label><br>
+				<input type='radio' name='day' value='mon'></center>
+			</div>
+			<div class='col-sm-2'>
+				<center><label>Tuesday</label><br>
+				<input type='radio' name='day' value='tue'></center>
+			</div>
+			<div class='col-sm-2'>
+				<center><label>Wednesday</label><br>
+				<input type='radio' name='day' value='wed'></center>
+			</div>
+			<div class='col-sm-2'>
+				<center><label>Thursday</label><br>
+				<input type='radio' name='day' value='thur'></center>
+			</div>
+			<div class='col-sm-2'>
+				<center><label>Friday</label><br>
+				<input type='radio' name='day' value='fri'></center>
+			</div>
+			<div class="col-sm-1"></div>
+			</div><br><br><br><br>
+			<div class='container'>
+			<div class='col-sm-1'>
+				<center><label>01</label><br>
+				<input type='checkbox' name='time' value='1'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>02</label><br>
+				<input type='checkbox' name='time' value='2'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>03</label><br>
+				<input type='checkbox' name='time' value='3'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>04</label><br>
+				<input type='checkbox' name='time' value='4'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>05</label><br>
+				<input type='checkbox' name='time' value='5'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>06</label><br>
+				<input type='checkbox' name='time' value='6'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>07</label><br>
+				<input type='checkbox' name='time' value='7'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>08</label><br>
+				<input type='checkbox' name='time' value='8'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>09</label><br>
+				<input type='checkbox' name='time' value='9'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>10</label><br>
+				<input type='checkbox' name='time' value='10'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>11</label><br>
+				<input type='checkbox' name='time' value='11'></center>
+			</div>
+			<div class='col-sm-1'>
+				<center><label>12</label><br>
+				<input type='checkbox' name='time' value='12'></center>
+			</div>
+			</div><br><br><br><br>
+			<div class="form-group">
+				<center><input class='form-control' style='width:100px;' value='submit' type='submit'></center>
+			</div>
+		</div>
+	</form>
+</div>
+</body>
+</html>
