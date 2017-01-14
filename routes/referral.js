@@ -4,8 +4,7 @@ var nodemailer = require('nodemailer');
 var voucher_codes = require('voucher-code-generator');
 var mongo = require('mongodb');
 var assert = require('assert');
-var expressValidator=require('express-validator');
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot';
 /* GET users listing. */
 
 router.get('/', function (req, res, next) {
@@ -14,21 +13,10 @@ router.get('/', function (req, res, next) {
 
 router.post('/mail', function (req, res, next) {
     // console.log(req.body);
-    var cname=req.body.club_name;
-    var email=req.body.email;
-    req.checkBody('cname','Name Cant Be Empty').notEmpty();
-    req.checkBody('email','Email Cant Be Empty').notEmpty();
-    req.checkBody('email','Email is not Valid').isEmail();
-    var errors=req.validationErrors();
-    if(errors){
-        res.render('referral',{
-            errors:errors,
-            club_name:cname,
-            email:email
-        });
-    }
-    else{
 
+     if (req.body.club_name == "" || req.body.club_name == "") {
+    res.render("referral", { message: "Blank Fields" });
+  }else{
     var transport = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -63,16 +51,16 @@ router.post('/mail', function (req, res, next) {
             res.redirect('/index');
         }
     });
-    }
+}
 });
 
 function generateCode() {
-    voucher_codes = voucher_codes.generate({
+    code = voucher_codes.generate({
         length: 6,
         count: 1
     });
 
-    return voucher_codes;
+    return code;
 }
 
 module.exports = router;

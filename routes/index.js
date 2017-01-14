@@ -5,9 +5,7 @@ var scraper = require('../scrapper');
 var mongo = require('mongodb');
 var bcrypt = require('bcrypt');
 var assert = require('assert');
-// var expressValidator=require('express-validator');
-// var MongoClient=requre('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot';
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index');
@@ -19,7 +17,6 @@ router.post('/submit', function (req, res, next) {
     password: req.body.passwd,
     referral: req.body.referral
   }
-  console.log(req.body.passwd);
   if (req.body.regno == "" || req.body.passwd == "") {
     res.render("index", { message: "Blank Fields" });
   } else {

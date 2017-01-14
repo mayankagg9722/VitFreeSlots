@@ -13,7 +13,7 @@
 
 <div class="jumbotron text-success" style='background-color:#4A148C;color:white;height:300px'><br><br>
 	<center><h1>VITFreeSlots</h1>
-	<p>Get to know about free membember at particular time by just login through VIT LOGIN</p></center>
+	<p>Get to know about free membember at particular time by just login through VIT credentials</p></center>
 </div>
 
 <div class="container" style='margin-top:5%;'>
@@ -23,40 +23,12 @@
 		<div class="form-group">
 			<label for='club_name'>Club Name</label>
 			<input type='text' name='club_name' class='form-control'>
-			<div><center>
-			<ul style='list-style-type:none;color:red;margin-top:20px;margin-top:5px;'>
-			<%if(errors!=undefined){%>
-				<%errors.forEach(function(error){%>
-				<li>
-					<%if(error.param=='cname'){%>
-						<%=error.msg%>
-					<%}%>
-					
-				</li>
-				<%});%>
-			<%}%>
-			</ul>
-			</center>
-			</div>
+			
 		</div>
 		<div class="form-group">
 			<label for='email'>Email</label>
 			<input type='email' name='email' class='form-control'>
-			<div><center>
-			<ul style='list-style-type:none;color:red;margin-top:20px;margin-top:5px;'>
-			<%if(errors!=undefined){%>
-				<%errors.forEach(function(error){%>
-				<li>
-					<%if(error.param=='email'){%>
-						<%=error.msg%>
-					<%}%>
-					
-				</li>
-				<%});%>
-			<%}%>
-			</ul>
-			</center>
-			</div>
+			
 		</div>
 		
 		<center>
@@ -72,5 +44,25 @@
 	</div>
 	<div class="col-sm-3"></div>
 </div>
+<center>
+<div style="color:red;margin-top:20px">
+<%if(message!=undefined){%>
+	<%=message%>
+<%}%>
+</div>
+</center>
+<footer style="background-color:#004D40;padding:20px;margin-top:54px;color:white;postion:absolute;bottom:0;">
+	<div class="container-fluid">
+		<div class="col-sm-4"><center><a href='https://github.com/lakshaykapoor7198' style:"color:white"><font style='color:white;'>@lakshaykapoor7198</font></a></center></div>
+		<div class="col-sm-4">
+			<center>
+				<h3>
+					DEVELOPERS
+				</h3>
+			</center>
+		</div>
+		<div class="col-sm-4" style:"color:white"><center><a href='https://github.com/mayankagg9722' style:"color:white"><font style='color:white;'>@mayankagg9722</font></a></center></div>
+	</div>
+</footer>
 </body>
 </html>
