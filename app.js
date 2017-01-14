@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var expressValidator=require('express-validator');
 var index = require('./routes/index');
 var slots = require('./routes/slots');
 var referral = require('./routes/referral');
@@ -20,8 +20,26 @@ app.set('view engine', 'ejs');
 
 app.use(function(req,res,next){
   res.locals.message=null;
+  res.locals.errors=null;
   next(); 
 });
+
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

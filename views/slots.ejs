@@ -9,7 +9,7 @@
   <title>MainSection</title>
 </head>
 <body>
-<nav class='navbar navbar-inverse' style='border-radius:0'>
+<nav class='navbar navbar-inverse' style='border-radius:0;margin-bottom:0'>
 <div class='container-fluid'>
 	<div class='navbar-header'>
 		<a href='#' class='navbar-brand'>FreeSlotsCalculater</a>
@@ -21,6 +21,7 @@
 	</div>
 	<div class='collapse navbar-collapse' id='mynavbar'>
 		<ul class="nav navbar-nav navbar-right">
+			<li><a href='/slots/logout'>Logout</a></li>
 			<li class='dropdown'>
 				<a href="#" class='dropdown-toggle' data-toggle='dropdown'>Members <span class="caret"></span></a>
 				<ul class='dropdown-menu'>
@@ -38,10 +39,9 @@
 
 </div>
 </nav>
-<div class="jumbotron text-success">
-	<center><h1>Find free slots</h1>
-	<p>So, here u just have to login with ur vtop credentials and we will tell ur free slots!!!:)</p>
-	<button class='btn btn-success btn-sm'>Learn More!</button></center>
+<div class="jumbotron text-success"  style='background-color:#FF9E80;color:white;'>
+	<center><h1>Who are free?</h1>
+	<p>Select day and timings to get to know who all free.</p>
 </div>
 <div class='container-fluid' style='margin-top:100px;'>
 	<form method='post' action='/slots/find' enctype='form-data/multipart'>
@@ -72,57 +72,57 @@
 			</div><br><br><br><br>
 			<div class='container'>
 			<div class='col-sm-1'>
-				<center><label>08:00 AMto08:50 AM</label><br>
+				<center><label>08:00 to 08:50</label><br>
 				<input type='checkbox' name='time' value='08:00 AMto08:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>09:00 AMto09:50 AM</label><br>
+				<center><label>09:00 to 09:50 </label><br>
 				<input type='checkbox' name='time' value='09:00 AMto09:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>10:00 AMto10:50 AM</label><br>
+				<center><label>10:00 to 10:50 </label><br>
 				<input type='checkbox' name='time' value='10:00 AMto10:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>11:00 AMto11:50 AM</label><br>
+				<center><label>11:00 to 11:50 </label><br>
 				<input type='checkbox' name='time' value='11:00 AMto11:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>12:00 PMto12:50 PM</label><br>
+				<center><label>12:00 to 12:50 </label><br>
 				<input type='checkbox' name='time' value='12:00 PMto12:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>12:40 PMto01:30 PM</label><br>
+				<center><label>12:40 to 01:30 </label><br>
 				<input type='checkbox' name='time' value='12:40 PMto01:30 PM'></center>
 			</div>
 			
 			<div class='col-sm-1'>
-				<center><label>02:00 PMto02:50 PM</label><br>
+				<center><label>02:00 to 02:50 </label><br>
 				<input type='checkbox' name='time' value='02:00 PMto02:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>03:00 PMto03:50 PM</label><br>
+				<center><label>03:00 to 03:50 </label><br>
 				<input type='checkbox' name='time' value='03:00 PMto03:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>04:00 PMto04:50 PM</label><br>
+				<center><label>04:00 to 04:50 </label><br>
 				<input type='checkbox' name='time' value='04:00 PMto04:50 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>05:00 PMto05:50 PM</label><br>
+				<center><label>05:00 to 05:50 </label><br>
 				<input type='checkbox' name='time' value='05:00 PMto05:50 PM'></center>
 			</div>
-			<div class='col-sm-1'>
-				<center><label>05:50 PMto06:40 PM</label><br>
+			<div class='col-sm-1'> 
+				<center><label>05:50 to 06:40 </label><br>
 				<input type='checkbox' name='time' value='05:50 PMto06:40 PM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>07:00 PMto07:50 PM</label><br>
+				<center><label>07:00 to 07:50 </label><br>
 				<input type='checkbox' name='time' value='07:00 PMto07:50 PM'></center>
 			</div>
 			</div><br><br><br><br>
 			<div class="form-group">
-				<center><input class='form-control' style='width:100px;' value='submit' type='submit'></center>
+				<center><input class='form-control btn btn-danger' style='width:100px;' value='Submit' type='submit'></center>
 			</div>
 		</div>
 	</form>

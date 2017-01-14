@@ -5,6 +5,7 @@ var scraper = require('../scrapper');
 var mongo = require('mongodb');
 var bcrypt = require('bcrypt');
 var assert = require('assert');
+// var expressValidator=require('express-validator');
 // var MongoClient=requre('mongodb').MongoClient;
 var url = 'mongodb://localhost:27017/test';
 /* GET home page. */
@@ -18,7 +19,11 @@ router.post('/submit', function (req, res, next) {
     password: req.body.passwd,
     referral: req.body.referral
   }
-  login.doLogin(details, function (jar) {
+  console.log(req.body.passwd);
+  if (req.body.regno == "" || req.body.passwd == "") {
+    res.render("index", { message: "Blank Fields" });
+  } else {
+        login.doLogin(details, function (jar) {
     checkReferral(req.body.referral, function (data) {
       // console.log(data);
       if (data != 0) {
@@ -62,10 +67,13 @@ router.post('/submit', function (req, res, next) {
         });
         res.redirect('/slots');
       } else {
-      res.render("index",{message:"Referral Not Valid" });
+      res.render("index",{message:"Referral Not Valid"});
     }
     });
   });
+  }
+
+
 });
 
 function getCount(username, callback) {

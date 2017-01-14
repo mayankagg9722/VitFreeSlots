@@ -14,6 +14,11 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.get('/logout', function (req, res, next) {
+  req.app.locals.referral=null;
+  res.redirect("/");
+});
+
 router.post('/find', function (req, res, next) {
   // res.json(req.body);
   var day = req.body.day;

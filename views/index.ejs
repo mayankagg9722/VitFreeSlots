@@ -9,17 +9,50 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="container" style='margin-top:15%;'>
+	<div class="jumbotron text-success" style='background-color:#FF9E80;color:white;'>
+	<center><h1>Login with your VIT credentials..</h1>
+</div>
+<div class="container" style='margin-top:5%;'>
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6" >
 		<form method='post' action='/index/submit' enctype='form-data/multipart'>
 		<div class="form-group">
 			<label for='regno'>Register Number</label>
 			<input type='text' pattern="[0-1]{1}[1-7]{1}[A-Z]{3}[0-9]{4}" title="15BCE0909" name='regno' class='form-control'>
+			<div><center>
+			<ul style='list-style-type:none;color:red;margin-top:20px;margin-top:5px;'>
+			<%if(errors!=undefined){%>
+				<%errors.forEach(function(error){%>
+				<li>
+					<%if(error.param=='valreg'){%>
+						<%=error.msg%>
+					<%}%>
+					
+				</li>
+				<%});%>
+			<%}%>
+			</ul>
+			</center>
+			</div>
 		</div>
 		<div class="form-group">
 			<label for='passwd'>Password</label>
 			<input type='password' name='passwd' class='form-control'>
+			<div><center>
+			<ul style='list-style-type:none;color:red;margin-top:20px;margin-top:5px;'>
+			<%if(errors!=undefined){%>
+				<%errors.forEach(function(error){%>
+				<li>
+					<%if(error.param=='valpass'){%>
+						<%=error.msg%>
+					<%}%>
+					
+				</li>
+				<%});%>
+			<%}%>
+			</ul>
+			</center>
+			</div>
 		</div>
 		<div class="form-group">
 			<label for='referral'>Referral</label>
@@ -31,12 +64,16 @@
 				<input type='submit'class='form-control btn-danger' style='width:50%;' value='SUBMIT'>
 			</div>
 		</center>
+			<br>
+		<center>
+			<a href='/' class='btn btn-success btn-md'>Get a referral code</a>
+		</center>
 	</form>
 	</div>
 	<div class="col-sm-3"></div>
 </div>
 <center>
-<div style="color:red">
+<div style="color:red;margin-top:20px">
 <%if(message!=undefined){%>
 	<%=message%>
 <%}%>
