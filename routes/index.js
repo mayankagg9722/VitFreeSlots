@@ -12,62 +12,76 @@ router.get('/', function (req, res, next) {
   res.render('index');
 });
 
-router.post('/slots', function (req, res, next) {
+router.post('/submit', function (req, res, next) {
   var details = {
     username: req.body.regno,
-    password: req.body.passwd
+    password: req.body.passwd,
+    referral: req.body.referral
   }
-
   login.doLogin(details, function (jar) {
-    
-    bcrypt.genSalt(10, function (err, salt) {
-      bcrypt.hash(req.body.passwd, salt, function (err, hash) {
-        // console.log(hash);
-        var item = {
-          username: req.body.regno,
-          password: hash
-        }
-        mongo.connect(url, function (err, db) {
-          assert.equal(null, err);
-          // console.log(item);
-          getCount(item.username,function(res){
-            console.log(res);
-            if (res == 0) {
-              db.collection('vitfreeslot_users').insert(item, function (err, result) {
-                assert.equal(null, err);
-                console.log('item inserted');
-              });
-              scraper.scrape(jar, function (data) {
-                // console.log(data);
-                db.collection('vitfreeslot_users_information').insert(data, function (err, result) {
-                assert.equal(null, err);
-                console.log('item 2 inserted');
-              });
-              });       
+    checkReferral(req.body.referral, function (data) {
+      // console.log(data);
+      if (data != 0) {
+        req.app.locals.referral=req.body.referral;
+        // console.log(req.app.locals.referral);
+        bcrypt.genSalt(10, function (err, salt) {
+          bcrypt.hash(req.body.passwd, salt, function (err, hash) {
+            // console.log(hash);
+            var item = {
+              username: req.body.regno,
+              password: hash,
+              referral: req.body.referral
             }
-            else {
-              console.log("Already Added");
-            }      
+            mongo.connect(url, function (err, db) {
+              assert.equal(null, err);
+              // console.log(item);
+              getCount(item.username, function (res) {
+                // console.log(res);
+                if (res == 0) {
+                  db.collection('vitfreeslot_users').insert(item, function (err, result) {
+                    assert.equal(null, err);
+                    console.log('item inserted');
+                  });
+                  scraper.scrape(jar, function (data) {
+                    // console.log(data);
+                    data.referral = req.body.referral;
+                    db.collection('vitfreeslot_users_information').insert(data, function (err, result) {
+                      assert.equal(null, err);
+                      console.log('item 2 inserted');
+                    });
+                  });
+                }
+                else {
+                  req.app.locals.referral = req.body.referral;
+                  // console.log(req.app.locals);
+                  console.log("Already Added");
+                }
+              });
+            });
           });
-         
         });
-      });
+      } else {
+        res.send("Referral Not Valid");
+      }
+      res.redirect('/slots');
     });
-    res.redirect('/slots');
   });
 });
 
-function getCount(username,callback){
+function getCount(username, callback) {
   mongo.connect(url, function (err, db) {
     db.collection("vitfreeslot_users").count({ username: username }, function (err, data) {
-            // console.log(data);
-            callback(data);
+      callback(data);
     });
   });
 }
 
-
-
-
+function checkReferral(referral, callback) {
+  mongo.connect(url, function (err, db) {
+    db.collection("vitfreeslot_referral").count({ referral: referral }, function (err, data) {
+      callback(data);
+    });
+  });
+}
 
 module.exports = router;
