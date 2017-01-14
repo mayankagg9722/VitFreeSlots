@@ -20,6 +20,8 @@
     "node-mailer": "^0.1.1",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
-    "voucher-code-generator": "^1.1.1"
+    "voucher-code-generator": "^1.1.1",
+    "unirest":"*",
+    "memory-cache":"*"
   }
 }

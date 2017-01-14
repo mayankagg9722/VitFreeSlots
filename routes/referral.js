@@ -4,6 +4,7 @@ var nodemailer = require('nodemailer');
 var voucher_codes = require('voucher-code-generator');
 var mongo = require('mongodb');
 var assert = require('assert');
+require('dotenv').config();
 var url = 'mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot';
 /* GET users listing. */
 

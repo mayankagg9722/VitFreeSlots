@@ -1,6 +1,5 @@
 var request = require('request');
 const cache = require('memory-cache');
-require('dotenv').config();
 var autocaptcha = require("./autocaptcha");
 var unirest = require('unirest');
 
