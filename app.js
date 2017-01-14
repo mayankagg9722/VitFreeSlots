@@ -12,7 +12,7 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hjs');
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -35,7 +35,9 @@ app.use(function (req, res, next) {
 // error handler
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
+  console.log(err);
   res.locals.message = err.message;
+
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
@@ -44,17 +46,4 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-
-//$$$$$$$$$   learn to get table by td and tr      $$$$$$$$ /////////
-
-                  //only theory subjects if condition
-
-
-                  // for (var i = 0; i < table.find('tr').length; i++) {
-                  //   for (var j = 0; j < table.find('tr').eq(i).find('td').length; j++) {
-                  //     if(table.find('tr').eq(i).find('td').eq(7).text()=="CBL")
-                  //   console.log(table.find('tr').eq(i).find('td').eq(j).text());
-                  //   }
-                  // }
                   

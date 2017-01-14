@@ -9,6 +9,35 @@
   <title>MainSection</title>
 </head>
 <body>
+<nav class='navbar navbar-inverse' style='border-radius:0'>
+<div class='container-fluid'>
+	<div class='navbar-header'>
+		<a href='#' class='navbar-brand'>FreeSlotsCalculater</a>
+		<button class="navbar-toggle" type='button' data-toggle='collapse' data-target='#mynavbar'>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div class='collapse navbar-collapse' id='mynavbar'>
+		<ul class="nav navbar-nav navbar-right">
+			<li class='dropdown'>
+				<a href="#" class='dropdown-toggle' data-toggle='dropdown'>Members <span class="caret"></span></a>
+				<ul class='dropdown-menu'>
+					<%if(memberNames!=undefined){%>
+						<%memberNames.forEach(function(member){%>
+						<li><a href='#'>
+							<%=member%>
+							</a></li>
+					<%});%>
+					<%}%>
+				</ul>
+			</li>
+		</ul>
+	</div>
+
+</div>
+</nav>
 <div class="jumbotron text-success">
 	<center><h1>Find free slots</h1>
 	<p>So, here u just have to login with ur vtop credentials and we will tell ur free slots!!!:)</p>
@@ -55,8 +84,8 @@
 				<input type='checkbox' name='time' value='10:00 AMto10:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
-				<center><label>11:00 AMto11:50 A</label><br>
-				<input type='checkbox' name='time' value='11:00 AMto11:50 A'></center>
+				<center><label>11:00 AMto11:50 AM</label><br>
+				<input type='checkbox' name='time' value='11:00 AMto11:50 AM'></center>
 			</div>
 			<div class='col-sm-1'>
 				<center><label>12:00 PMto12:50 PM</label><br>

@@ -19,7 +19,7 @@ router.post('/slots', function (req, res, next) {
   }
 
   login.doLogin(details, function (jar) {
-
+    
     bcrypt.genSalt(10, function (err, salt) {
       bcrypt.hash(req.body.passwd, salt, function (err, hash) {
         // console.log(hash);
@@ -43,8 +43,7 @@ router.post('/slots', function (req, res, next) {
                 assert.equal(null, err);
                 console.log('item 2 inserted');
               });
-              });
-              
+              });       
             }
             else {
               console.log("Already Added");
@@ -54,7 +53,7 @@ router.post('/slots', function (req, res, next) {
         });
       });
     });
-    res.render('slots');
+    res.redirect('/slots');
   });
 });
 
