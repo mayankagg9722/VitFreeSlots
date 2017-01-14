@@ -31,7 +31,7 @@ router.post('/mail', function (req, res, next) {
         to: req.body.email,
         subject: 'Test',
         text: 'U have got a new User',
-        html: "<div style='width:100%; background-color:grey;color:white'><center><h1>VitFreeSlots</h1><p>Club:" + req.body.club_name + "</p>Referrall Code:" + code[0] + "</p></center></div>"
+        html: "<div style='width:100%; background-color:#004D40;padding:20px;color:white'><center><h1>VitFreeSlots</h1><p>Club:" + req.body.club_name + "</p>Referrall Code:" + code[0] + "</p></center></div>"
     };
 
 
