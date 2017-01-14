@@ -6,10 +6,12 @@ var app = require("../app");
 /* GET users listing. */
 var memberNames = new Array;
 router.get('/', function (req, res, next) {
+  if(req.app.locals.referral==null){
+    res.redirect("index");
+  }
   getNames(req.app.locals.referral,function(data){
     res.render('slots', { memberNames: data });
   });
-
 });
 
 router.post('/find', function (req, res, next) {

@@ -60,10 +60,10 @@ router.post('/submit', function (req, res, next) {
             });
           });
         });
+        res.redirect('/slots');
       } else {
-        res.send("Referral Not Valid");
-      }
-      res.redirect('/slots');
+      res.render("index",{message:"Referral Not Valid" });
+    }
     });
   });
 });
