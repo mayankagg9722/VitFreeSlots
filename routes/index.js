@@ -34,10 +34,47 @@ router.post('/submit', function (req, res, next) {
               password: hash,
               referral: req.body.referral
             }
-            mongo.connect(url, function (err, db) {
+          mongoInsertion(item.username,item.referral,jar,item,req,function(data){
+              if(data=="done"){
+                res.redirect('/slots');
+              }else{
+                console.log("not woking");
+              }
+          });
+            
+          });
+        });
+      } else {
+      res.render("index",{message:"Referral Not Valid"});
+    }
+    });
+  });
+  }
+
+
+});
+
+function getCount(username,referral, callback) {
+  mongo.connect(url, function (err, db) {
+    db.collection("vitfreeslot_users").count({ username: username,referral:referral }, function (err, data) {
+      callback(data);
+    });
+  });
+}
+
+function checkReferral(referral, callback) {
+  mongo.connect(url, function (err, db) {
+    db.collection("vitfreeslot_referral").count({ referral: referral }, function (err, data) {
+      callback(data);
+    });
+  });
+}
+
+function mongoInsertion(username,referral,jar,item,req,callback){
+    mongo.connect(url, function (err, db) {
               assert.equal(null, err);
               // console.log(item);
-              getCount(item.username, function (res) {
+              getCount(username,referral, function (res) {
                 // console.log(res);
                 if (res == 0) {
                   db.collection('vitfreeslot_users').insert(item, function (err, result) {
@@ -50,6 +87,7 @@ router.post('/submit', function (req, res, next) {
                     db.collection('vitfreeslot_users_information').insert(data, function (err, result) {
                       assert.equal(null, err);
                       console.log('item 2 inserted');
+                      callback("done");
                     });
                   });
                 }
@@ -57,36 +95,10 @@ router.post('/submit', function (req, res, next) {
                   req.app.locals.referral = req.body.referral;
                   // console.log(req.app.locals);
                   console.log("Already Added");
+                  callback("done");
                 }
               });
             });
-          });
-        });
-        res.redirect('/slots');
-      } else {
-      res.render("index",{message:"Referral Not Valid"});
-    }
-    });
-  });
-  }
-
-
-});
-
-function getCount(username, callback) {
-  mongo.connect(url, function (err, db) {
-    db.collection("vitfreeslot_users").count({ username: username }, function (err, data) {
-      callback(data);
-    });
-  });
-}
-
-function checkReferral(referral, callback) {
-  mongo.connect(url, function (err, db) {
-    db.collection("vitfreeslot_referral").count({ referral: referral }, function (err, data) {
-      callback(data);
-    });
-  });
 }
 
 module.exports = router;

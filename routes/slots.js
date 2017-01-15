@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
   if(req.app.locals.referral==null){
     res.redirect("index");
   }
+  console.log("s");
   getNames(req.app.locals.referral,function(data){
     res.render('slots', { memberNames: data });
   });
@@ -56,6 +57,7 @@ router.post('/find', function (req, res, next) {
 });
 
 function getNames(referral,callback){
+  console.log("f");
 var memberNames=[];
   MongoClient.connect('mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot', function (err, db) {
     var col = db.collection("vitfreeslot_users_information");
