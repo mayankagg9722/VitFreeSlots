@@ -5,7 +5,7 @@ var voucher_codes = require('voucher-code-generator');
 var mongo = require('mongodb');
 var assert = require('assert');
 require('dotenv').config();
-var url = 'mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot';
+var url = 'mongodb://localhost:27017/test';
 /* GET users listing. */
 
 router.get('/', function (req, res, next) {
