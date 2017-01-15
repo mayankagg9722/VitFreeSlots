@@ -8,14 +8,23 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="VitFreeSlots" />
 	<meta property="og:description" content="Find out if your friend is free" />
-	<meta property="og:image" content="http://www.your-domain.com/path/image.jpg" />
+	<meta property="og:image" content="http://www.vitfreeslot.herokuapp.com/public/images/fb_display.png" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>VitFreeSlots</title>
-
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<title>VITFreeSlots</title>
+	<link rel="icon" href="/images/icon_1.png">
+	<style>
+		body{
+			background-image:url('/images/fb_display.png');
+			color: white;
+			/*filter:blur(5px);*/
+		}
+	</style>
 </head>
-<body>
+<body >
+	<div class="background-image"></div>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -28,10 +37,9 @@
 
 
 	<div class='page-wrap'>
-		<div class="jumbotron text-success" style='background-color:#4A148C;color:white;height:300px'><br><br>
+		<div class="jumbotron text-success" style='background-color:transparent;color:white;height:300px'><br><br>
 <center>
-	<h1>VITFreeSlots</h1>
-	<p>Get to know about free membember at particular time by just login through VIT credentials</p>
+	<h1 style="font-size:150px; font-family: 'Quicksand', sans-serif;">VIT Free Slots</h1>
 </center>
 </div>
 
@@ -40,7 +48,7 @@
 <div class="col-sm-6">
 	<form method='post' action='/mail' enctype='form-data/multipart'>
 		<div class="form-group">
-			<label for='club_name'>Club Name</label>
+			<label for='club_name' >Club Name</label>
 			<input type='text' name='club_name' class='form-control'>
 
 		</div>
@@ -73,15 +81,10 @@
 
 			</div>
 
-			<footer style="background-color:#004D40;color:white;margin-top:45px;padding:30px;" class='site-footer'>
+			<footer style="background-color:transparent;color:white;margin-top:45px;padding:30px;" class='site-footer'>
 <div class="container-fluid">
 	<div class="col-sm-4">
 		<center><a href='https://github.com/lakshaykapoor7198' style: "color:white"><font style='color:white;'>@lakshaykapoor7198</font>
-</a>
-</center>
-</div>
-<div class="col-sm-4" style: "color:white">
-	<center><a href='https://github.com/mayankagg9722' style: "color:white"><font style='color:white;'>@mayankagg9722</font>
 </a>
 </center>
 </div>
@@ -90,6 +93,12 @@
 		<div class="fb-like" data-href="http://vitfreeslot.herokuapp.com/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark" data-share="true"></div>			
 </center>
 </div>
+<div class="col-sm-4" style: "color:white">
+	<center><a href='https://github.com/mayankagg9722' style: "color:white"><font style='color:white;'>@mayankagg9722</font>
+</a>
+</center>
+</div>
+
 </div>
 </footer>
 </body>
