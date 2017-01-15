@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:url" content="http://vitfreeslot.herokuapp.com/" />
 	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="vitfreeslot.herokuapp.com" />
 	<meta property="og:title" content="VitFreeSlots" />
 	<meta property="og:description" content="Find out if your when your friend are free" />
 	<meta property="og:image" content="http://vitfreeslot.herokuapp.com/public/images/fb_display.png" />
@@ -24,6 +25,11 @@
 			color: white;
 			/*filter:blur(5px);*/
 		}
+		@media screen and (min-width: 480px) {
+    h1 {
+        font-size:90px;
+    }
+}
 	</style>
 </head>
 <body >
@@ -34,15 +40,15 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=549803961892673";
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=938360856294148";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
 	<div class='page-wrap'>
-		<div class="jumbotron text-success" style='background-color:transparent;color:white;height:300px'><br><br>
+		<div class="jumbotron" style='background-color:transparent;color:white;'><br><br>
 <center>
-	<h1 style="font-size:150px; font-family: 'Quicksand', sans-serif;">VIT Free Slots</h1>
+	<h1 style="font-size:120px; font-family: 'Quicksand', sans-serif;font-weight: bold">VIT Free Slots</h1>
 </center>
 </div>
 
@@ -93,7 +99,7 @@
 </div>
 <div class="col-sm-4">
 	<center>
-		<div class="fb-like" data-href="http://vitfreeslot.herokuapp.com/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark" data-share="true"></div>			
+		<div class="fb-like" data-href="http://vitfreeslot.herokuapp.com/views/referral.ejs" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-colorscheme="dark" data-share="true"></div>			
 </center>
 
 </div>
