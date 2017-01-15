@@ -34,7 +34,7 @@ router.post('/find', function (req, res, next) {
   MongoClient.connect('mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot', function (err, db) {
     var col = db.collection("vitfreeslot_users_information");
     col.find({referral:req.app.locals.referral}).toArray(function (err, items) {
-      // console.log(items.length);
+      console.log(items);
       for (var i = 0; i < items.length; i++) {
         var time = req.body.time;
         if (typeof time === "string") {

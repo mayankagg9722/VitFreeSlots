@@ -35,7 +35,7 @@ function scrape(jar, callback) {
         var obj = new Object;
         obj.student_name = name;
         free_slots.name = obj;
-        console.log(free_slots);
+        // console.log(free_slots);
         global_callback(free_slots);
     };
 
@@ -54,19 +54,14 @@ function scrape(jar, callback) {
             var arr = [];
             for (var j = 0; j < table.find('tr').eq(i).find('td').length; j++) {
                 if (table.find('tr').eq(i).find('td').eq(j).text().length < 11) {
-                    if (j != 7 && !(table.find('tr').eq(0).find('td').eq(j).text() == "THEORY HOURS")) {
-                        // console.log(table.find('tr').eq(0).find('td').eq(j).text());
-                        if (table.find('tr').eq(0).find('td').eq(j).text().length > 3) {
-                            arr.push(table.find('tr').eq(0).find('td').eq(j).text());
-                        } else {
-                            arr.push(table.find('tr').eq(1).find('td').eq(j).text());
-                        }
-
+                    if (!(table.find('tr').eq(0).find('td').eq(j).text() == "THEORY HOURS")) {
+                        arr.push(table.find('tr').eq(1).find('td').eq(j).text());
                     }
                     var str=table.find('tr').eq(i).find('td').eq(0).text();
                     obj[str] = arr;
                 }
             }
+            console.log(obj);
             time.push(obj);
         }
         free_slots.time = time;
