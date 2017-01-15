@@ -5,7 +5,7 @@ var scraper = require('../scrapper');
 var mongo = require('mongodb');
 var bcrypt = require('bcrypt');
 var assert = require('assert');
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot';
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index');
