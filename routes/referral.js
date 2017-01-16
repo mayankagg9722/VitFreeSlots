@@ -5,7 +5,7 @@ var voucher_codes = require('voucher-code-generator');
 var mongo = require('mongodb');
 var assert = require('assert');
 require('dotenv').config();
-// var url = {url:process.env.MONGO_URL};
+var url = process.env.MONGO_URL;
 /* GET users listing. */
 
 router.get('/', function (req, res, next) {
@@ -38,7 +38,7 @@ router.post('/mail', function (req, res, next) {
 
     transport.sendMail(mailOptions, function (error, info) {
         if (!error) {
-            mongo.connect({url:process.env.MONGO_URL}, function (err, db) {
+            mongo.connect(url.toString(), function (err, db) {
                 assert.equal(null, err);
                 var item = {
                     club_name: req.body.club_name,
