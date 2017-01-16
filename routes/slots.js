@@ -31,7 +31,7 @@ router.post('/find', function (req, res, next) {
   if (day == 'THU') index = 3;
   if (day == 'FRI') index = 4;
 
-  MongoClient.connect('mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot', function (err, db) {
+  MongoClient.connect(process.env.MONGO_URL, function (err, db) {
     var col = db.collection("vitfreeslot_users_information");
     col.find({referral:req.app.locals.referral}).toArray(function (err, items) {
       console.log(items);
@@ -59,7 +59,7 @@ router.post('/find', function (req, res, next) {
 function getNames(referral,callback){
   console.log("f");
 var memberNames=[];
-  MongoClient.connect('mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot', function (err, db) {
+  MongoClient.connect(process.env.MONGO_URL, function (err, db) {
     var col = db.collection("vitfreeslot_users_information");
     col.find({referral:referral}).toArray(function (err, items) {
       for (var i = 0; i < items.length; i++) {
