@@ -14,7 +14,7 @@ function scrape(jar, callback) {
             if (res.error) {
                 console.log('GET error', res.error)
             } else {
-                console.log("///@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                console.log("///@@@@@@@@@@@@@@@@@@@@");
 
                 var Request = unirest.get('https://vtop.vit.ac.in/student/course_regular.asp?sem=WS')
                     .jar(jar)
@@ -61,7 +61,7 @@ function scrape(jar, callback) {
                     obj[str] = arr;
                 }
             }
-            console.log(obj);
+            // console.log(obj);
             time.push(obj);
         }
         free_slots.time = time;
