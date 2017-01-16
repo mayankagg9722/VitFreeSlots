@@ -5,7 +5,7 @@ var scraper = require('../scrapper');
 var mongo = require('mongodb');
 var bcrypt = require('bcrypt');
 var assert = require('assert');
-var url = "mongodb://lakshay:lakshay@ds111559.mlab.com:11559/vitfreeslot";
+var url = process.env.MONGO_URL;
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index');
@@ -56,7 +56,7 @@ router.post('/submit', function (req, res, next) {
 });
 
 function getCount(username, referral, callback) {
-  mongo.connect(url, function (err, db) {
+  mongo.connect(url.toString(), function (err, db) {
     db.collection("vitfreeslot_users").count({ username: username, referral: referral }, function (err, data) {
       callback(data);
     });
@@ -64,7 +64,7 @@ function getCount(username, referral, callback) {
 }
 
 function checkReferral(referral, callback) {
-  mongo.connect(url, function (err, db) {
+  mongo.connect(url.toString(), function (err, db) {
     db.collection("vitfreeslot_referral").count({ referral: referral }, function (err, data) {
       callback(data);
     });
@@ -72,7 +72,7 @@ function checkReferral(referral, callback) {
 }
 
 function mongoInsertion(username, referral, jar, item, req, callback) {
-  mongo.connect(url, function (err, db) {
+  mongo.connect(url.toString(), function (err, db) {
     assert.equal(null, err);
     // console.log(item);
     getCount(username, referral, function (res) {
