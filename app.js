@@ -21,6 +21,7 @@ app.set('view engine', 'ejs');
 app.use(function(req,res,next){
   res.locals.message=null;
   res.locals.errors=null;
+  res.locals.mailSent=null;
   next(); 
 });
 

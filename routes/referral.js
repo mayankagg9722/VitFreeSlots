@@ -49,7 +49,13 @@ router.post('/mail', function (req, res, next) {
                     console.log('referral inserted');
                 });
             });
-            res.redirect('/index');
+            var mailSent=req.app.locals.mailSent="Referral has been sent to your email.";
+            res.render("index", { mailSent:mailSent })
+            // res.redirect('/index');
+        }
+        else{
+            console.log(error);
+            res.render("referral",{ message:"Email Failed.Try Again Later..." })
         }
     });
 }

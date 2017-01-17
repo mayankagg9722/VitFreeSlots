@@ -13,6 +13,20 @@
 	<div class="jumbotron text-success" style='background-color:#FF9E80;color:white;'>
 	<center><h1>Login with your VTOP credentials..</h1>
 </div>
+<%if(mailSent!=undefined){%>
+<div class="container">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+		<center>
+		<div class="alert alert-success">
+			<center><strong>Success!</strong>
+				<%=mailSent%>
+			</center>
+		</div>
+		</center>
+	</div>
+</div>
+<%}%>
 <div class="container" style='margin-top:5%;'>
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6" >
